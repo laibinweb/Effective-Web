@@ -7,13 +7,17 @@ gulp.task('server', function() {
     browserSync.init({
         server: {
             baseDir: "./"
-        }
+        },
+        files:['**']
     });
 });
 
 gulp.task('watch', function() {
     // gulp.watch('app/**/*.scss',gulp.series('sass'))
-    gulp.watch('app/**/*.scss').on('change', handleSass)
+    gulp.watch('app/**/*.scss').on('change', function() {
+        handleSass();
+        browserSync.reload()
+    })
     gulp.watch("app/**/*.html").on('change', browserSync.reload);
 })
 
@@ -22,7 +26,7 @@ function handleSass(path, e) {
             .pipe(sass())
             .pipe(gulp.dest('app'))
             // .pipe(gulp.dest(path.replace(path.replace(/\\/g, "\/").replace(/.+\/(.+)$/, '$1'), '')))
-            // .pipe(browserSync.stream());
+            .pipe(browserSync.stream());
 }
 
 gulp.task('run', gulp.parallel('server', 'watch'))
