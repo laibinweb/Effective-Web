@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>多利用表单特性</title>
+</head>
+<body>
+    <!--
+        如果使用ajax提交的话需要获取所有input的值，
+        然后encode一下拼接到网址参数中
+        使用form表单提交的话，将所有字段的名字写在input的name里面
+        然后form的action为提交的地址链接
+        如果需要做表单验证，那就监听submit事件做验证，验证通过后调用原生表单元素
+        的submit函数就可以提交了
+
+        使用form表单还有一个好处是按回车时会自动触发submit事件
+    -->
+    <form action="/login">
+        <div>
+            <label for="">账号</label>
+            <input type="text" name="user">
+        </div>
+        <div>
+            <label for="">密码</label>
+            <input type="password" name="password">
+        </div>
+    </form>
+</body>
+</html>
