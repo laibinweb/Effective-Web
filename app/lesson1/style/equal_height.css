@@ -1,0 +1,31 @@
+@charset "UTF-8";
+.wrap {
+  font-size: 0;
+  overflow: hidden; }
+  .wrap > div {
+    background: #ececec;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 12px;
+    vertical-align: top;
+    /* margin/padding实现等高对齐 */
+    /* 
+        这种方法只在某些场景可用，底部border没有了，设置的圆角也没有了，
+        因为设置了一个很大的padding值，导致它的高度变得很大，所以如果你想在底部用absolute
+        定位放一个链接, "更多>>"是实现不了的, 局限性很大 
+        */
+    /* 借助table特性 */
+    display: table-cell;
+    width: 1000px; }
+    .wrap > div > h2 {
+      font-size: 24px; }
+    .wrap > div > p {
+      font-size: 14px; }
+
+/* 借助表格特性还可以更方便的实现响应式,
+    借助媒体查询动态地改变display的属性，
+    从而改变排列的方式。
+*/
+@media (max-width: 800px) {
+  .wrap > div {
+    display: block; } }

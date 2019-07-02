@@ -1,0 +1,24 @@
+li {
+    box-sizing: border-box;
+    padding: 20px;
+    border: 1px solid lightblue;
+    background: lightcoral;
+    font-size: 24px;
+}
+ul {
+    font-size: 0;
+    li {
+        width: 100%;
+        &:first-child:nth-last-child(2),
+        &:first-child:nth-last-child(2) ~ li {
+            display: inline-block;
+            width: 50%
+        }
+        &:first-child:nth-last-child(3),
+        &:first-child:nth-last-child(3) ~ li {
+            display: inline-block;
+            width: 33%
+        }
+    }
+}
+
